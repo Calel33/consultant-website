@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Disrupt The Block - Leading technology consulting agency specializing in blockchain architecture, AI automation, and custom software development. Transform your business with innovative tech solutions that reduce costs and drive growth.">
+  <title>Technology Consulting Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;300;400;500;600;700&family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body, html {
+      font-family: 'Roboto Mono', monospace, system-ui;
+      background: #111;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+    h1, h2, h3, h4 {
+      font-family: 'JetBrains Mono', monospace !important;
+      letter-spacing: -0.03em !important;
+    }
+    .title-bold {
+      font-weight: 600 !important;
+    }
+    .title-light {
+      font-weight: 200 !important;
+    }
+    #shader-canvas {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: block;
+      z-index: 0;
+      background: #111;
+    }
+    .glass-effect {
+      backdrop-filter: blur(14px) brightness(0.91);
+      -webkit-backdrop-filter: blur(14px) brightness(0.91);
+    }
+    .gradient-text {
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      /* Fallback color for unsupported browsers */
+      -webkit-text-fill-color: transparent;
+      /* Prevent text cutoff */
+      line-height: 1.1;
+      padding: 0.1em 0;
+      /* Ensure proper rendering */
+      display: inline-block;
+      position: relative;
+    }
+
+    /* Fallback for browsers that don't support background-clip */
+    @supports not (background-clip: text) {
+      .gradient-text {
+        color: #ffffff;
+        background: none;
+      }
+    }
+    .floating-animation {
+      animation: float 6s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-20px) rotate(2deg); }
+    }
+    .pulse-glow {
+      animation: pulse-glow 3s ease-in-out infinite;
+    }
+    @keyframes pulse-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(59, 130, 246, 0.3); }
+      50% { box-shadow: 0 0 40px rgba(59, 130, 246, 0.6); }
+    }
+    .feature-icon {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+      50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.7; }
+    }
+  </style>
+
+</head>
+<body>
+  <div class="fixed inset-0 w-full h-screen">
+    <iframe src="https://my.spline.design/unchained-d3hHCgdWho7a8ATGzKtB11TU/" frameborder="0" width="100%" height="100%"></iframe>
+  </div>
+  
+  <!-- Navigation -->
+  <nav class="relative z-20 glass-effect bg-white/5 border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <div class="flex items-center">
+          <img src="logo/Group.svg" alt="Disrupt the Block Logo" class="h-20 w-20" style="height: 80px; width: 80px;">
+        </div>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#technology-solutions" class="text-white/70 hover:text-white text-sm transition-colors">Solutions</a>
+          <a href="#" class="text-white/70 hover:text-white text-sm transition-colors">About</a>
+          <a href="coming-soon.html" class="text-white/70 hover:text-white text-sm transition-colors">Case Studies</a>
+          <a href="coming-soon.html" class="text-white/70 hover:text-white text-sm transition-colors">Resources</a>
+          <a href="https://cal.com/calvindtbt/30min?overlayCalendar=true" target="_blank" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-sm rounded-lg transition-colors inline-block text-center">
+            Schedule Consultation
+          </a>
+        </div>
+        <!-- Mobile Menu Button (visible on small screens) -->
+        <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Navigation Links -->
+  <div id="mobile-menu" class="md:hidden hidden absolute top-16 inset-x-0 z-30 glass-effect bg-zinc-900/80 border-t border-white/10 px-6 py-8">
+    <div class="grid grid-cols-2 gap-4">
+      <!-- Solutions -->
+      <a href="#technology-solutions" class="flex flex-col items-center justify-center p-4 glass-effect bg-white/5 border border-white/10 rounded-xl hover:border-blue-500/50 transition-all">
+        <i class="fas fa-cubes text-blue-400 text-2xl mb-2"></i>
+        <span class="text-sm text-white/80">Solutions</span>
+      </a>
+      <!-- About -->
+      <a href="#" class="flex flex-col items-center justify-center p-4 glass-effect bg-white/5 border border-white/10 rounded-xl hover:border-blue-500/50 transition-all">
+        <i class="fas fa-user-astronaut text-purple-400 text-2xl mb-2"></i>
+        <span class="text-sm text-white/80">About</span>
+      </a>
+      <!-- Case Studies -->
+      <a href="coming-soon.html" class="flex flex-col items-center justify-center p-4 glass-effect bg-white/5 border border-white/10 rounded-xl hover:border-blue-500/50 transition-all">
+        <i class="fas fa-briefcase text-amber-400 text-2xl mb-2"></i>
+        <span class="text-sm text-white/80">Case Studies</span>
+      </a>
+      <!-- Resources -->
+      <a href="coming-soon.html" class="flex flex-col items-center justify-center p-4 glass-effect bg-white/5 border border-white/10 rounded-xl hover:border-blue-500/50 transition-all">
+        <i class="fas fa-book-open text-emerald-400 text-2xl mb-2"></i>
+        <span class="text-sm text-white/80">Resources</span>
+      </a>
+      <!-- Consultation CTA spans two columns -->
+      <button class="col-span-2 px-4 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white rounded-xl font-medium transition-all">
+        Schedule Consultation
+      </button>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="relative z-10 min-h-screen flex items-center justify-center px-4 pt-20">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16">
+        <!-- Main Heading -->
+        <h1 class="text-5xl md:text-7xl lg:text-8xl leading-[1.1] tracking-[-0.03em] gradient-text bg-gradient-to-r from-white via-blue-300 to-indigo-400 mb-6">
+          <span class="title-bold">Digital Isn’t the Future</span>
+          <br>
+          <span class="text-4xl md:text-6xl lg:text-7xl title-bold"> It’s Right Now!</span>
+        </h1>
+        
+        <!-- Subtitle -->
+        <p class="text-lg md:text-xl text-white/70 max-w-3xl mx-auto mb-8 leading-relaxed">
+          Staying competitive means staying current.
+We help teams evolve faster with smart technology strategies, clean architecture, and scalable solutions that grow with your business.
+        </p>
+        
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <a href="#contact-form" class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-xl transition-all duration-200 pulse-glow inline-block text-center">
+            Get Started Today
+          </a>
+          <a href="https://cal.com/calvindtbt/30min?overlayCalendar=true" target="_blank" class="px-8 py-4 glass-effect bg-white/10 hover:bg-white/15 text-white font-medium rounded-xl transition-all duration-200 border border-white/10 inline-block text-center">
+            <i class="fas fa-phone mr-2"></i>
+            Schedule Tech Assessment
+          </a>
+        </div>
+        
+        <!-- Trust Indicators -->
+        <div class="flex flex-wrap justify-center gap-6 mb-16">
+          <span class="text-xs text-white/60 px-3 py-2 rounded-full bg-white/5 border border-white/10">
+            <i class="fas fa-link mr-2"></i>Blockchain Certified
+          </span>
+          <span class="text-xs text-white/60 px-3 py-2 rounded-full bg-white/5 border border-white/10">
+            <i class="fas fa-robot mr-2"></i>AI Specialized
+          </span>
+          <span class="text-xs text-white/60 px-3 py-2 rounded-full bg-white/5 border border-white/10">
+            <i class="fas fa-rocket mr-2"></i>Modern Architecture
+          </span>
+        </div>
+      </div>
+      
+      <!-- Service Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <!-- Service 1 -->
+        <div class="glass-effect bg-gradient-to-br from-white/10 to-white/5 border border-white/10 rounded-2xl p-6 floating-animation">
+          <div class="feature-icon mb-4">
+            <i class="fas fa-link text-blue-400"></i>
+          </div>
+          <h3 class="text-xl text-white mb-3">Blockchain Architecture</h3>
+          <p class="text-white/70 text-sm leading-relaxed">
+            Design and implement decentralized blockchain solutions that enhance transparency, security, and trust in your business operations.
+          </p>
+          <a href="blockchain-solutions.html" class="mt-4 flex items-center text-blue-400 text-sm hover:text-blue-300 transition-colors">
+            <span>Learn more</span>
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+        
+        <!-- Service 2 -->
+        <div class="glass-effect bg-gradient-to-br from-white/10 to-white/5 border border-white/10 rounded-2xl p-6 floating-animation" style="animation-delay: -2s;">
+          <div class="feature-icon mb-4">
+            <i class="fas fa-robot text-indigo-400"></i>
+          </div>
+          <h3 class="text-xl text-white mb-3">AI & Automation</h3>
+          <p class="text-white/70 text-sm leading-relaxed">
+            Leverage artificial intelligence and automation to streamline operations and unlock new business opportunities.
+          </p>
+          <a href="ai-automation.html" class="mt-4 flex items-center text-indigo-400 text-sm hover:text-indigo-300 transition-colors">
+            <span>Learn more</span>
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+        
+        <!-- Service 3 -->
+        <div class="glass-effect bg-gradient-to-br from-white/10 to-white/5 border border-white/10 rounded-2xl p-6 floating-animation" style="animation-delay: -4s;">
+          <div class="feature-icon mb-4">
+            <i class="fas fa-laptop-code text-purple-400"></i>
+          </div>
+          <h3 class="text-xl text-white mb-3">Technology Solutions</h3>
+          <p class="text-white/70 text-sm leading-relaxed">
+            We help you plan, design, and implement the right technology with consulting that connects your vision to real-world execution.
+          </p>
+          <a href="custom-software-development.html" class="mt-4 flex items-center text-purple-400 text-sm hover:text-purple-300 transition-colors">
+            <span>Learn more</span>
+            <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </div>
+      
+
+    </div>
+  </div>
+
+  <!-- Services Section -->
+  <div id="technology-solutions" class="relative overflow-hidden bg-gradient-to-b from-black via-gray-900/50 to-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 relative z-10">
+      <div class="text-center max-w-4xl mx-auto mb-24">
+        <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-600/10 border border-blue-500/20 mb-8">
+          <i class="fas fa-rocket text-blue-400 mr-2"></i>
+          <span class="text-blue-300 text-sm font-medium">Technology Solutions</span>
+        </div>
+        <h2 class="text-4xl md:text-6xl lg:text-7xl leading-[1.1] title-bold gradient-text bg-gradient-to-r from-white via-blue-300 to-indigo-400 mb-8">
+          Expertise That Drives Innovation
+        </h2>
+        <p class="text-lg md:text-xl text-white/70 leading-relaxed">
+          We don't just build - we guide. As your technology consulting partner, we help you make smarter decisions about where and how to innovate. Whether you're looking to reduce operational costs, modernize legacy systems, or launch a new digital product, our team brings the strategy, technical expertise, and real-world experience to make it happen and make it last.
+        </p>
+      </div>
+
+      <!-- Custom Services Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+        <!-- Featured Service 1 -->
+        <a href="blockchain-solutions.html" class="glass-effect bg-gradient-to-br from-white/10 to-white/5 border border-white/10 rounded-2xl p-8 group hover:border-blue-500/30 transition-all duration-300 block">
+          <div class="flex items-start space-x-4 mb-6">
+            <div class="feature-icon bg-blue-600/20 border-blue-500/30">
+              <i class="fas fa-link text-blue-400"></i>
+            </div>
+            <div>
+              <h3 class="text-2xl text-white mb-2 title-bold">Blockchain Architecture</h3>
+              <div class="text-blue-400 text-sm font-medium mb-3">Build More. Trust More. Spend Less.</div>
+            </div>
+          </div>
+          <p class="text-white/70 leading-relaxed mb-6">
+            Our decentralized blockchain solutions reduce friction, lower costs, and create transparent, secure systems that customers and partners can rely on. Transform your business operations with technology that builds trust while cutting expenses.
+          </p>
+          <div class="flex items-center text-blue-400 text-sm group-hover:text-blue-300 transition-colors">
+            <span>Explore blockchain solutions</span>
+            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </a>
+          
+        <!-- Featured Service 2 -->
+        <div class="glass-effect bg-gradient-to-br from-white/10 to-white/5 border border-white/10 rounded-2xl p-8 group hover:border-purple-500/30 transition-all duration-300">
+          <div class="flex items-start space-x-4 mb-6">
+            <div class="feature-icon bg-purple-600/20 border-purple-500/30">
+              <i class="fas fa-robot text-purple-400"></i>
+            </div>
+            <div>
+              <h3 class="text-2xl text-white mb-2 title-bold">AI & Automation</h3>
+              <div class="text-purple-400 text-sm font-medium mb-3">Intelligent Systems</div>
+            </div>
+          </div>
+          <p class="text-white/70 leading-relaxed mb-6">
+            While your team copies, pastes, and rechecks spreadsheets, your competitors are scaling with AI. We build automation systems that save 60+ hours a week, cut costs by a third, and nearly erase manual error. Automate what slows you down or risk falling behind.
+          </p>
+          <a href="ai-automation.html" class="flex items-center text-purple-400 text-sm group-hover:text-purple-300 transition-colors">
+            <span>Discover AI solutions</span>
+            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Secondary Services Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <!-- Service Card 1 -->
+        <a href="custom-software-development.html" class="glass-effect bg-gradient-to-br from-white/8 to-white/3 border border-white/10 rounded-xl p-6 group hover:bg-gradient-to-br hover:from-cyan-900/20 hover:to-white/5 hover:border-cyan-500/30 transition-all duration-300 block">
+          <div class="feature-icon bg-cyan-600/20 border-cyan-500/30 mb-4">
+            <i class="fas fa-robot text-cyan-400"></i>
+          </div>
+          <h3 class="text-lg text-white mb-2 title-bold">Custom Bot Development</h3>
+          <p class="text-white/60 text-sm leading-relaxed mb-4">
+            Custom Telegram, Discord, and platform bots that automate tasks and engage users 24/7.
+          </p>
+          <div class="flex items-center text-cyan-400 text-xs group-hover:text-cyan-300 transition-colors">
+            <span>Learn more</span>
+            <i class="fas fa-arrow-right ml-1 text-[10px]"></i>
+          </div>
+        </a>
+
+        <!-- Service Card 2 -->
+        <a href="custom-software-development.html" class="glass-effect bg-gradient-to-br from-white/8 to-white/3 border border-white/10 rounded-xl p-6 group hover:bg-gradient-to-br hover:from-emerald-900/20 hover:to-white/5 hover:border-emerald-500/30 transition-all duration-300 block">
+          <div class="feature-icon bg-emerald-600/20 border-emerald-500/30 mb-4">
+            <i class="fas fa-mobile-alt text-emerald-400"></i>
+          </div>
+          <h3 class="text-lg text-white mb-2 title-bold">Mobile Solutions</h3>
+          <p class="text-white/60 text-sm leading-relaxed mb-4">
+            Cross-platform applications that deliver exceptional user experiences.
+          </p>
+          <div class="flex items-center text-emerald-400 text-xs group-hover:text-emerald-300 transition-colors">
+            <span>Learn more</span>
+            <i class="fas fa-arrow-right ml-1 text-[10px]"></i>
+          </div>
+        </a>
+
+        <!-- Service Card 3 -->
+        <a href="custom-software-development.html" class="glass-effect bg-gradient-to-br from-white/8 to-white/3 border border-white/10 rounded-xl p-6 group hover:bg-gradient-to-br hover:from-amber-900/20 hover:to-white/5 hover:border-amber-500/30 transition-all duration-300 block">
+          <div class="feature-icon bg-amber-600/20 border-amber-500/30 mb-4">
+            <i class="fas fa-code text-amber-400"></i>
+          </div>
+          <h3 class="text-lg text-white mb-2 title-bold">Web Development</h3>
+          <p class="text-white/60 text-sm leading-relaxed mb-4">
+            Modern, responsive websites and web applications built with cutting-edge technologies.
+          </p>
+          <div class="flex items-center text-amber-400 text-xs group-hover:text-amber-300 transition-colors">
+            <span>Learn more</span>
+            <i class="fas fa-arrow-right ml-1 text-[10px]"></i>
+          </div>
+        </a>
+      </div>
+
+      <!-- Additional Services Row -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        <!-- Custom Software Development -->
+        <a href="custom-software-development.html" class="glass-effect bg-gradient-to-br from-white/10 to-white/5 border border-white/10 rounded-2xl p-8 group hover:border-indigo-500/30 transition-all duration-300 block">
+          <div class="flex items-start space-x-4 mb-6">
+            <div class="feature-icon bg-indigo-600/20 border-indigo-500/30">
+              <i class="fas fa-laptop-code text-indigo-400"></i>
+            </div>
+            <div>
+              <h3 class="text-2xl text-white mb-2 title-bold">Custom Software Development</h3>
+              <div class="text-indigo-400 text-sm font-medium mb-3">Tailored Solutions</div>
+            </div>
+          </div>
+          <p class="text-white/70 leading-relaxed mb-6">
+            Tired of software that doesn't fit your business? Off-the-shelf solutions cost you time, money, and competitive edge. Our custom software delivers exactly what you need - faster workflows, better user experiences, and systems that scale with your growth.
+          </p>
+          <div class="flex items-center text-indigo-400 text-sm group-hover:text-indigo-300 transition-colors">
+            <span>View our development process</span>
+            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </a>
+
+        <!-- Project Management -->
+        <a href="project-management.html" class="glass-effect bg-gradient-to-br from-white/10 to-white/5 border border-white/10 rounded-2xl p-8 group hover:border-red-500/30 transition-all duration-300 block">
+          <div class="flex items-start space-x-4 mb-6">
+            <div class="feature-icon bg-red-600/20 border-red-500/30">
+              <i class="fas fa-tasks text-red-400"></i>
+            </div>
+            <div>
+              <h3 class="text-2xl text-white mb-2 title-bold">Project Management</h3>
+              <div class="text-red-400 text-sm font-medium mb-3">Delivery Excellence</div>
+            </div>
+          </div>
+          <p class="text-white/70 leading-relaxed mb-6">
+            Missed deadlines and budget overruns kill projects before they deliver value. Our proven project management methodology ensures on-time, on-budget delivery with clear communication and risk mitigation at every stage.
+          </p>
+          <div class="flex items-center text-red-400 text-sm group-hover:text-red-300 transition-colors">
+            <span>Explore our methodology</span>
+            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition-transform"></i>
+          </div>
+        </a>
+      </div>
+
+      <div class="h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent my-16"></div>
+
+      <!-- Why Choose Us Section -->
+      <div class="text-center max-w-4xl mx-auto mb-20">
+        <div class="inline-flex items-center px-4 py-2 rounded-full bg-green-600/10 border border-green-500/20 mb-8">
+          <i class="fas fa-trophy text-green-400 mr-2"></i>
+          <span class="text-green-300 text-sm font-medium">Proven Results</span>
+        </div>
+        <h2 id="why-choose-us" class="text-4xl md:text-6xl lg:text-7xl leading-[1.1] title-bold gradient-text bg-gradient-to-r from-white via-blue-300 to-indigo-400 mb-8">
+          Why Choose Disrupt The Block
+        </h2>
+        <p class="text-lg md:text-xl text-white/70 leading-relaxed mb-16">
+          We’re not just another tech consultancy. We’re builders, problem-solvers, and strategic partners committed to your long-term success. From automation and AI to custom software and digital strategy, we help you unlock what’s next.
+        </p>
+      </div>
+
+      <!-- Stacking Cards Container -->
+      <div class="stacking-cards-container relative h-[600px] overflow-hidden mb-16">
+        <!-- Card 1 - Modern Approach -->
+        <div class="advantage-card card-1 absolute w-full h-32 glass-effect bg-gradient-to-br from-blue-900/20 to-black border border-blue-500/30 rounded-2xl">
+          <div class="flex items-center h-full px-8">
+            <div class="feature-icon bg-blue-600/20 border-blue-500/30 mr-6">
+              <i class="fas fa-clock text-blue-400"></i>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl text-white title-bold mb-2">Modern Approach</h3>
+              <p class="text-white/70 text-sm">Latest tech stack & methodologies</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 - Results-Focused -->
+        <div class="advantage-card card-2 absolute w-full h-32 glass-effect bg-gradient-to-br from-green-900/20 to-black border border-green-500/30 rounded-2xl">
+          <div class="flex items-center h-full px-8">
+            <div class="feature-icon bg-green-600/20 border-green-500/30 mr-6">
+              <i class="fas fa-chart-line text-green-400"></i>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl text-white title-bold mb-2">Results-Focused</h3>
+              <p class="text-white/70 text-sm">Business value-driven approach</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 - Deep Expertise -->
+        <div class="advantage-card card-3 absolute w-full h-32 glass-effect bg-gradient-to-br from-purple-900/20 to-black border border-purple-500/30 rounded-2xl">
+          <div class="flex items-center h-full px-8">
+            <div class="feature-icon bg-purple-600/20 border-purple-500/30 mr-6">
+              <i class="fas fa-users text-purple-400"></i>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl text-white title-bold mb-2">Deep Expertise</h3>
+              <p class="text-white/70 text-sm">Senior-level expertise from day one</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 - Transparent Partnership -->
+        <div class="advantage-card card-4 absolute w-full h-32 glass-effect bg-gradient-to-br from-orange-900/20 to-black border border-orange-500/30 rounded-2xl">
+          <div class="flex items-center h-full px-8">
+            <div class="feature-icon bg-orange-600/20 border-orange-500/30 mr-6">
+              <i class="fas fa-shield-alt text-orange-400"></i>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl text-white title-bold mb-2">Transparent Partnership</h3>
+              <p class="text-white/70 text-sm">Complete transparency & accountability</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 - Dedicated Support -->
+        <div class="advantage-card card-5 absolute w-full h-32 glass-effect bg-gradient-to-br from-red-900/20 to-black border border-red-500/30 rounded-2xl">
+          <div class="flex items-center h-full px-8">
+            <div class="feature-icon bg-red-600/20 border-red-500/30 mr-6">
+              <i class="fas fa-headset text-red-400"></i>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl text-white title-bold mb-2">Dedicated Support</h3>
+              <p class="text-white/70 text-sm">Direct access to senior consultants</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6 - Scalable Solutions -->
+        <div class="advantage-card card-6 absolute w-full h-32 glass-effect bg-gradient-to-br from-cyan-900/20 to-black border border-cyan-500/30 rounded-2xl">
+          <div class="flex items-center h-full px-8">
+            <div class="feature-icon bg-cyan-600/20 border-cyan-500/30 mr-6">
+              <i class="fas fa-handshake text-cyan-400"></i>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-2xl text-white title-bold mb-2">Scalable Solutions</h3>
+              <p class="text-white/70 text-sm">Future-proof architecture & design</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Spacer for Animation -->
+      <div class="h-[40vh]"></div>
+
+      <!-- Success Stats -->
+      <div class="glass-effect bg-gradient-to-br from-white/5 to-white/2 border border-white/10 rounded-2xl p-8 md:p-12 mb-16">
+        <div class="text-center mb-8">
+          <h3 class="text-2xl md:text-3xl title-bold text-white mb-4">
+            Our Commitment to Excellence
+          </h3>
+          <p class="text-white/70">
+            Ready to be your trusted technology partner from day one - bringing fresh ideas and proven expertise to every project.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div class="text-3xl md:text-4xl font-[200] text-white mb-2">100%</div>
+            <div class="text-sm text-white/60">Focused Attention</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl md:text-4xl font-[200] text-white mb-2">24/7</div>
+            <div class="text-sm text-white/60">Availability</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl md:text-4xl font-[200] text-white mb-2">0%</div>
+            <div class="text-sm text-white/60">Hidden Fees</div>
+          </div>
+          <div class="text-center">
+            <div class="text-3xl md:text-4xl font-[200] text-white mb-2">∞</div>
+            <div class="text-sm text-white/60">Growth Potential</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent my-16"></div>
+    </div>
+  </div>
+
+  <!-- Contact Section -->
+  <div id="contact" class="relative overflow-hidden bg-gradient-to-b from-black via-gray-900/50 to-black">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 relative z-10">
+      <div class="text-center max-w-4xl mx-auto mb-24">
+          <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-600/10 border border-blue-500/20 mb-8">
+            <i class="fas fa-paper-plane text-blue-400 mr-2"></i>
+            <span class="text-blue-300 text-sm font-medium">Get In Touch</span>
+          </div>
+          <h2 class="text-4xl md:text-6xl lg:text-7xl leading-[1.1] title-bold gradient-text bg-gradient-to-r from-white via-blue-300 to-indigo-400 mb-8">
+            Start Your Transformation
+          </h2>
+          <p class="text-lg md:text-xl text-white/70 leading-relaxed max-w-3xl mx-auto">
+            Ready to revolutionize your technology infrastructure? Let's discuss how Disrupt The Block can accelerate your digital transformation and deliver measurable results.
+          </p>
+        </div>
+
+        <div class="max-w-6xl mx-auto">
+          <div class="glass-effect bg-gradient-to-br from-white/8 to-white/3 border border-white/10 rounded-3xl overflow-hidden">
+          <div class="grid grid-cols-1 lg:grid-cols-2">
+            <!-- Left side - Contact Info -->
+            <div class="p-8 lg:p-12 bg-gradient-to-br from-blue-900/30 to-purple-900/20 relative overflow-hidden">
+              <!-- Background Pattern -->
+              <div class="absolute inset-0 opacity-5">
+                <div class="absolute top-4 left-4 w-32 h-32 border border-white/20 rounded-full"></div>
+                <div class="absolute bottom-8 right-8 w-24 h-24 border border-white/20 rounded-full"></div>
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 border border-white/10 rounded-full"></div>
+              </div>
+              
+              <div class="relative z-10">
+                <h3 id="contact-form" class="text-2xl md:text-3xl title-bold text-white mb-6">Let's Build Something Amazing</h3>
+                <p class="text-white/70 text-lg leading-relaxed mb-8">
+                  Whether you need blockchain architecture, AI automation, or custom software development, we're here to turn your vision into reality.
+                </p>
+
+                <!-- Contact Methods -->
+                <div class="space-y-6 mb-8">
+                  <div class="flex items-start space-x-4">
+                    <div class="feature-icon bg-blue-600/20 border-blue-500/30 mt-1">
+                      <i class="fas fa-envelope text-blue-400"></i>
+                    </div>
+                    <div>
+                      <p class="text-white font-medium mb-1">Email Us</p>
+                      <p class="text-white/70">disrupttheblock@mail.com</p>
+                    </div>
+                  </div>
+
+                  
+                  <div class="flex items-start space-x-4">
+                    <div class="feature-icon bg-purple-600/20 border-purple-500/30 mt-1">
+                      <i class="fas fa-map-marker-alt text-purple-400"></i>
+                    </div>
+                    <div>
+                      <p class="text-white font-medium mb-1">Location</p>
+                      <p class="text-white/70">Global Remote Team</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Social Links -->
+                <div class="space-y-4">
+                  <p class="text-white/70 text-sm">Follow our journey</p>
+                  <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 glass-effect bg-white/10 border border-white/20 rounded-xl flex items-center justify-center text-white/70 hover:text-white hover:border-blue-500/50 transition-all duration-200">
+                      <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 glass-effect bg-white/10 border border-white/20 rounded-xl flex items-center justify-center text-white/70 hover:text-white hover:border-blue-500/50 transition-all duration-200">
+                      <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 glass-effect bg-white/10 border border-white/20 rounded-xl flex items-center justify-center text-white/70 hover:text-white hover:border-blue-500/50 transition-all duration-200">
+                      <i class="fab fa-github"></i>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right side - Contact Form -->
+            <div class="p-8 lg:p-12 border-t lg:border-t-0 lg:border-l border-white/10">
+              <form action="https://formspree.io/f/mvgqagyw" method="POST" class="space-y-6">
+                <!-- Name & Email Row -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label for="contact-name" class="block text-sm font-medium text-white/80 mb-2">Name *</label>
+                    <input
+                      type="text"
+                      id="contact-name"
+                      name="name"
+                      required
+                      class="w-full px-4 py-3 glass-effect bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all duration-200"
+                      placeholder="Your name"
+                    >
+                  </div>
+                  <div>
+                    <label for="contact-email" class="block text-sm font-medium text-white/80 mb-2">Email *</label>
+                    <input
+                      type="email"
+                      id="contact-email"
+                      name="email"
+                      required
+                      class="w-full px-4 py-3 glass-effect bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all duration-200"
+                      placeholder="your@email.com"
+                    >
+                  </div>
+                </div>
+
+                <!-- Company & Project Type -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label for="contact-company" class="block text-sm font-medium text-white/80 mb-2">Company</label>
+                    <input
+                      type="text"
+                      id="contact-company"
+                      name="company"
+                      class="w-full px-4 py-3 glass-effect bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all duration-200"
+                      placeholder="Your company"
+                    >
+                  </div>
+                  <div>
+                    <label for="contact-service" class="block text-sm font-medium text-white/80 mb-2">Service Interest</label>
+                    <select
+                      id="contact-service"
+                      name="service"
+                      class="w-full px-4 py-3 glass-effect bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all duration-200 appearance-none cursor-pointer"
+                    >
+                      <option value="" class="bg-gray-900">Select a service</option>
+                      <option value="blockchain-architecture" class="bg-gray-900">Blockchain Architecture</option>
+                      <option value="ai-automation" class="bg-gray-900">AI & Automation</option>
+                      <option value="custom-software-development" class="bg-gray-900">Custom Software Development</option>
+                      <option value="project-management" class="bg-gray-900">Project Management</option>
+                      <option value="technology-consultation" class="bg-gray-900">Technology Consultation</option>
+                      <option value="other" class="bg-gray-900">Other / Multiple Services</option>
+                    </select>
+                  </div>
+                </div>
+
+                <!-- Budget Range -->
+                <div>
+                  <label for="contact-budget" class="block text-sm font-medium text-white/80 mb-2">Project Budget</label>
+                  <select
+                    id="contact-budget"
+                    name="budget"
+                    class="w-full px-4 py-3 glass-effect bg-white/5 border border-white/20 rounded-xl text-white focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all duration-200 appearance-none cursor-pointer"
+                  >
+                    <option value="" class="bg-gray-900">Select budget range</option>
+                    <option value="10k-25k" class="bg-gray-900">$10k - $25k</option>
+                    <option value="25k-50k" class="bg-gray-900">$25k - $50k</option>
+                    <option value="50k-100k" class="bg-gray-900">$50k - $100k</option>
+                    <option value="100k+" class="bg-gray-900">$100k+</option>
+                    <option value="discuss" class="bg-gray-900">Let's discuss</option>
+                  </select>
+                </div>
+
+                <!-- Message -->
+                <div>
+                  <label for="contact-message" class="block text-sm font-medium text-white/80 mb-2">Project Details *</label>
+                  <textarea
+                    id="contact-message"
+                    name="message"
+                    rows="4"
+                    required
+                    class="w-full px-4 py-3 glass-effect bg-white/5 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:border-blue-500/50 focus:bg-white/10 transition-all duration-200 resize-none"
+                    placeholder="Tell us about your project, challenges, and goals. What technology transformation are you looking to achieve?"
+                  ></textarea>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="pt-4">
+                  <button 
+                    type="submit" 
+                    class="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-medium rounded-xl transition-all duration-200 pulse-glow flex items-center justify-center space-x-2"
+                  >
+                    <span>Send Message</span>
+                    <i class="fas fa-paper-plane ml-2"></i>
+                  </button>
+                  <p class="text-white/50 text-xs text-center mt-3">
+                    We'll respond within 24 hours with next steps
+                  </p>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+      <div class="h-px bg-gradient-to-r from-transparent via-gray-800 to-transparent my-20"></div>
+
+      <!-- Final CTA Section -->
+      <div class="text-center max-w-4xl mx-auto mt-32 mb-32">
+        <h2 class="text-3xl md:text-4xl leading-[1.1] title-bold gradient-text bg-gradient-to-r from-white via-blue-300 to-indigo-400 mb-6">
+          Ready to Transform Your Technology?
+        </h2>
+        <p class="text-lg text-white/80 max-w-2xl mx-auto mb-8 leading-relaxed">
+          Every day you wait, your competition gets further ahead. Take action now. Schedule a free consultation and discover how we can transform your organization's technology challenges into competitive advantages.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="https://cal.com/calvindtbt/30min?overlayCalendar=true" target="_blank" class="px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-xl transition-all duration-200 pulse-glow inline-block text-center">
+            Get FREE Strategy Session
+          </a>
+          <a href="coming-soon.html" class="px-8 py-4 glass-effect bg-white/10 hover:bg-white/15 text-white font-medium rounded-xl transition-all duration-200 border border-white/10 inline-flex items-center">
+            <i class="fas fa-folder-open mr-2"></i>
+            View Case Studies
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="pt-16 pb-8 px-6 md:px-12 bg-zinc-900/80 border-t border-zinc-800 backdrop-blur-xl">
+    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between mb-10">
+      <div class="mb-8 md:mb-0">
+        <div class="text-2xl font-semibold tracking-tight mb-2">
+          Disrupt The Block<span class="text-blue-500">.</span>
+        </div>
+        <p class="text-gray-400 text-[15px] max-w-sm">
+          Transforming businesses through innovative technology solutions. Blockchain, AI, and custom software that drives results.
+        </p>
+      </div>
+      <nav class="flex flex-wrap gap-x-8 gap-y-2 items-center text-[15px]">
+        <a href="#" class="hover:text-blue-400 transition-colors">Home</a>
+        <a href="#technology-solutions" class="hover:text-blue-400 transition-colors">Services</a>
+        <a href="#why-choose-us" class="hover:text-blue-400 transition-colors">Why Choose Us</a>
+        <a href="#contact-form" class="hover:text-blue-400 transition-colors">Contact</a>
+        <a href="coming-soon.html" class="hover:text-blue-400 transition-colors">Blog</a>
+      </nav>
+    </div>
+    <div class="border-t border-zinc-800 pt-8 flex flex-col md:flex-row md:items-center md:justify-between">
+      <div class="text-gray-500 text-[14px] mb-4 md:mb-0">
+        &copy; 2025 Disrupt The Block. All rights reserved.
+      </div>
+      <div class="flex space-x-4">
+        <a href="#" class="text-gray-400 hover:text-blue-500 transition-colors" aria-label="LinkedIn">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+          </svg>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-blue-500 transition-colors" aria-label="Twitter">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+          </svg>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-blue-500 transition-colors" aria-label="GitHub">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  
+  <script>
+    // Register GSAP ScrollTrigger
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Stacking Cards Animation
+    const cards = gsap.utils.toArray(".advantage-card");
+    const cardHeight = 128; // h-32 = 128px
+    const visibleOffset = 25; // Visible offset when stacked
+    const animationDistance = 400; // Fixed scroll distance
+
+    // Set initial positions - cards start fully stacked
+    cards.forEach((card, index) => {
+      gsap.set(card, { 
+        y: index * visibleOffset,
+        opacity: 1,
+        zIndex: cards.length - index // Proper stacking order
+      });
+    });
+
+    // Create smooth stacking animation without pinning
+    ScrollTrigger.create({
+      trigger: ".stacking-cards-container",
+      start: "top 80%",
+      end: "bottom 20%",
+      scrub: 0.5, // Smooth but responsive
+      animation: gsap.timeline()
+        .to(cards.slice(1), {
+          y: (index, element) => {
+            const cardIndex = cards.indexOf(element);
+            return cardIndex * cardHeight; // Spread out to full height
+          },
+          duration: 1,
+          ease: "power1.inOut" // Slight easing for smoothness
+        })
+    });
+
+    // Animate card content on reveal
+    cards.forEach((card, index) => {
+      const title = card.querySelector('h3');
+      const description = card.querySelector('p');
+      const icon = card.querySelector('i');
+
+      // Set initial state
+      gsap.set([title, description, icon], { opacity: 0, x: -30 });
+
+      ScrollTrigger.create({
+        trigger: card,
+        start: "top 80%",
+        end: "top 20%",
+        onEnter: () => {
+          gsap.to([icon, title, description], {
+            opacity: 1,
+            x: 0,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "power2.out"
+          });
+        }
+      });
+    });
+
+    // Mobile Menu Toggle
+    const menuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    if (menuButton && mobileMenu) {
+      const icon = menuButton.querySelector('i');
+
+      const toggleMenu = () => {
+        mobileMenu.classList.toggle('hidden');
+        if (icon) {
+          icon.classList.toggle('fa-bars');
+          icon.classList.toggle('fa-times');
+        }
+      };
+
+      menuButton.addEventListener('click', toggleMenu);
+
+      // Close menu when a link inside is clicked
+      mobileMenu.querySelectorAll('a, button').forEach(el => {
+        el.addEventListener('click', () => {
+          if (!mobileMenu.classList.contains('hidden')) {
+            toggleMenu();
+          }
+        });
+      });
+    }
+
+    // Smooth scroll to contact form with offset
+    document.addEventListener('DOMContentLoaded', function() {
+      const getStartedBtn = document.querySelector('a[href="#contact-form"]');
+      const contactFormHeading = document.getElementById('contact-form');
+
+      if (getStartedBtn && contactFormHeading) {
+        getStartedBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+
+          // Wait a moment for any layout changes, then scroll
+          setTimeout(() => {
+            const rect = contactFormHeading.getBoundingClientRect();
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const targetPosition = rect.top + scrollTop - 100; // 100px offset for better positioning
+
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }, 50);
+        });
+      }
+    });
+
+    // Contact form handling
+    const contactForm = document.querySelector('form[action*="formspree"]');
+    if (contactForm) {
+      contactForm.addEventListener('submit', function(e) {
+        const submitBtn = this.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+
+        // Show submitting state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Sending...</span><i class="fas fa-spinner fa-spin ml-2"></i>';
+
+        // Allow form to submit naturally to Formspree
+        // After a short delay, clear the form (Formspree will redirect)
+        setTimeout(() => {
+          // Reset form if still on page (in case of errors)
+          if (document.contains(this)) {
+            this.reset();
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalText;
+          }
+        }, 3000);
+      });
+    }
+  </script>
+</body>
+</html> 

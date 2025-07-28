@@ -1,0 +1,182 @@
+[
+  {
+    "symbol": "AI & Automation",
+    "kind": "j",
+    "line": "              <h3 class=\"text-2xl text-white mb-2 title-bold\">AI & Automation<\\/h3>$/;\"",
+    "pattern": "/^              <h3 class=\"text-2xl text-white mb-2 title-bold\">AI & Automation<\\/h3>$/;\""
+  },
+  {
+    "symbol": "AI & Automation",
+    "kind": "j",
+    "line": "          <h3 class=\"text-xl text-white mb-3\">AI & Automation<\\/h3>$/;\"",
+    "pattern": "/^          <h3 class=\"text-xl text-white mb-3\">AI & Automation<\\/h3>$/;\""
+  },
+  {
+    "symbol": "Blockchain Architecture",
+    "kind": "j",
+    "line": "              <h3 class=\"text-2xl text-white mb-2 title-bold\">Blockchain Architecture<\\/h3>$/;\"",
+    "pattern": "/^              <h3 class=\"text-2xl text-white mb-2 title-bold\">Blockchain Architecture<\\/h3>$/;\""
+  },
+  {
+    "symbol": "Blockchain Architecture",
+    "kind": "j",
+    "line": "          <h3 class=\"text-xl text-white mb-3\">Blockchain Architecture<\\/h3>$/;\"",
+    "pattern": "/^          <h3 class=\"text-xl text-white mb-3\">Blockchain Architecture<\\/h3>$/;\""
+  },
+  {
+    "symbol": "Cloud Infrastructure",
+    "kind": "j",
+    "line": "          <h3 class=\"text-lg text-white mb-2 title-bold\">Cloud Infrastructure<\\/h3>$/;\"",
+    "pattern": "/^          <h3 class=\"text-lg text-white mb-2 title-bold\">Cloud Infrastructure<\\/h3>$/;\""
+  },
+  {
+    "symbol": "Custom Software Development",
+    "kind": "j",
+    "line": "              <h3 class=\"text-2xl text-white mb-2 title-bold\">Custom Software Development<\\/h3>$/;\"",
+    "pattern": "/^              <h3 class=\"text-2xl text-white mb-2 title-bold\">Custom Software Development<\\/h3>$/;\""
+  },
+  {
+    "symbol": "Cybersecurity Solutions",
+    "kind": "j",
+    "line": "              <h3 class=\"text-2xl text-white mb-2 title-bold\">Cybersecurity Solutions<\\/h3>$/;\"",
+    "pattern": "/^              <h3 class=\"text-2xl text-white mb-2 title-bold\">Cybersecurity Solutions<\\/h3>$/;\""
+  },
+  {
+    "symbol": "Data Analytics",
+    "kind": "j",
+    "line": "          <h3 class=\"text-lg text-white mb-2 title-bold\">Data Analytics<\\/h3>$/;\"",
+    "pattern": "/^          <h3 class=\"text-lg text-white mb-2 title-bold\">Data Analytics<\\/h3>$/;\""
+  },
+  {
+    "symbol": "Dedicated Support",
+    "kind": "j",
+    "line": "              <h3 class=\"text-2xl text-white title-bold mb-2\">Dedicated Support<\\/h3>$/;\"",
+    "pattern": "/^              <h3 class=\"text-2xl text-white title-bold mb-2\">Dedicated Support<\\/h3>$/;\""
+  },
+  {
+    "symbol": "Deep Expertise",
+    "kind": "j",
+    "line": "              <h3 class=\"text-2xl text-white title-bold mb-2\">Deep Expertise<\\/h3>$/;\"",
+    "pattern": "/^              <h3 class=\"text-2xl text-white title-bold mb-2\">Deep Expertise<\\/h3>$/;\""
+  },
+  {
+    "symbol": "Expertise That Drives Innovation",
+    "kind": "i",
+    "line": "        <\\/h2>$/;\"",
+    "pattern": "/^        <\\/h2>$/;\""
+  },
+  {
+    "symbol": "Let's Build Something Amazing",
+    "kind": "j",
+    "line": "                <h3 class=\"text-2xl md:text-3xl title-bold text-white mb-6\">Let's Build Somethin/;\"",
+    "pattern": "/^                <h3 class=\"text-2xl md:text-3xl title-bold text-white mb-6\">Let's Build Somethin/;\""
+  },
+  {
+    "symbol": "Mobile Solutions",
+    "kind": "j",
+    "line": "          <h3 class=\"text-lg text-white mb-2 title-bold\">Mobile Solutions<\\/h3>$/;\"",
+    "pattern": "/^          <h3 class=\"text-lg text-white mb-2 title-bold\">Mobile Solutions<\\/h3>$/;\""
+  },
+  {
+    "symbol": "Modern Approach",
+    "kind": "j",
+    "line": "              <h3 class=\"text-2xl text-white title-bold mb-2\">Modern Approach<\\/h3>$/;\"",
+    "pattern": "/^              <h3 class=\"text-2xl text-white title-bold mb-2\">Modern Approach<\\/h3>$/;\""
+  },
+  {
+    "symbol": "Our Commitment to Excellence",
+    "kind": "j",
+    "line": "          <\\/h3>$/;\"",
+    "pattern": "/^          <\\/h3>$/;\""
+  },
+  {
+    "symbol": "Ready to Transform Your Technology?",
+    "kind": "i",
+    "line": "        <\\/h2>$/;\"",
+    "pattern": "/^        <\\/h2>$/;\""
+  },
+  {
+    "symbol": "Results-Focused",
+    "kind": "j",
+    "line": "              <h3 class=\"text-2xl text-white title-bold mb-2\">Results-Focused<\\/h3>$/;\"",
+    "pattern": "/^              <h3 class=\"text-2xl text-white title-bold mb-2\">Results-Focused<\\/h3>$/;\""
+  },
+  {
+    "symbol": "Scalable Solutions",
+    "kind": "j",
+    "line": "              <h3 class=\"text-2xl text-white title-bold mb-2\">Scalable Solutions<\\/h3>$/;\"",
+    "pattern": "/^              <h3 class=\"text-2xl text-white title-bold mb-2\">Scalable Solutions<\\/h3>$/;\""
+  },
+  {
+    "symbol": "Start Your Transformation",
+    "kind": "i",
+    "line": "          <\\/h2>$/;\"",
+    "pattern": "/^          <\\/h2>$/;\""
+  },
+  {
+    "symbol": "Technology Consulting Solutions",
+    "kind": "j",
+    "line": "  <title>Technology Consulting Solutions<\\/title>$/;\"",
+    "pattern": "/^  <title>Technology Consulting Solutions<\\/title>$/;\""
+  },
+  {
+    "symbol": "Technology Solutions",
+    "kind": "j",
+    "line": "          <h3 class=\"text-xl text-white mb-3\">Technology Solutions<\\/h3>$/;\"",
+    "pattern": "/^          <h3 class=\"text-xl text-white mb-3\">Technology Solutions<\\/h3>$/;\""
+  },
+  {
+    "symbol": "Technology Transformed",
+    "kind": "h",
+    "line": "        <\\/h1>$/;\"",
+    "pattern": "/^        <\\/h1>$/;\""
+  },
+  {
+    "symbol": "Transparent Partnership",
+    "kind": "j",
+    "line": "              <h3 class=\"text-2xl text-white title-bold mb-2\">Transparent Partnership<\\/h3>$/;\"",
+    "pattern": "/^              <h3 class=\"text-2xl text-white title-bold mb-2\">Transparent Partnership<\\/h3>$/;\""
+  },
+  {
+    "symbol": "Why Choose TechVision",
+    "kind": "i",
+    "line": "        <\\/h2>$/;\"",
+    "pattern": "/^        <\\/h2>$/;\""
+  },
+  {
+    "symbol": "contact-budget",
+    "kind": "I",
+    "line": "                    id=\"contact-budget\"$/;\"",
+    "pattern": "/^                    id=\"contact-budget\"$/;\""
+  },
+  {
+    "symbol": "contact-company",
+    "kind": "I",
+    "line": "                      id=\"contact-company\"$/;\"",
+    "pattern": "/^                      id=\"contact-company\"$/;\""
+  },
+  {
+    "symbol": "contact-email",
+    "kind": "I",
+    "line": "                      id=\"contact-email\" $/;\"",
+    "pattern": "/^                      id=\"contact-email\" $/;\""
+  },
+  {
+    "symbol": "contact-message",
+    "kind": "I",
+    "line": "                    id=\"contact-message\" $/;\"",
+    "pattern": "/^                    id=\"contact-message\" $/;\""
+  },
+  {
+    "symbol": "contact-name",
+    "kind": "I",
+    "line": "                      id=\"contact-name\" $/;\"",
+    "pattern": "/^                      id=\"contact-name\" $/;\""
+  },
+  {
+    "symbol": "contact-service",
+    "kind": "I",
+    "line": "                      id=\"contact-service\"$/;\"",
+    "pattern": "/^                      id=\"contact-service\"$/;\""
+  }
+]

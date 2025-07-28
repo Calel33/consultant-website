@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Coming Soon - Disrupt The Block technology consulting agency. New features and content launching soon. Expert blockchain, AI automation, and custom software development services.">
+  <title>Disrupt the Block - Coming Soon</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@200;300;400;500;600;700&family=Roboto+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      font-family: 'Roboto Mono', monospace;
+    }
+
+
+
+  </style>
+</head>
+<body class="relative h-screen w-full flex items-center justify-center bg-black text-white font-inter overflow-hidden select-none">
+
+  <!-- Matrix Canvas -->
+  <canvas id="matrix-canvas" class="fixed inset-0 -z-10 opacity-70"></canvas>
+
+  <!-- Radial Glow -->
+  <div class="pointer-events-none fixed inset-0 -z-10 bg-gradient-to-br from-blue-400/5 via-indigo-400/5 to-transparent"></div>
+
+  <!-- Glass Card -->
+  <div class="w-[90%] sm:w-[85%] max-w-sm sm:max-w-md rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md shadow-2xl p-4 sm:p-6 md:p-7 flex flex-col items-center gap-4 sm:gap-6">
+    <!-- Logo / Heading -->
+    <div class="flex flex-col items-center gap-1 sm:gap-2">
+      <i data-lucide="zap" class="h-5 w-5 sm:h-6 sm:w-6 stroke-[1.5] text-blue-400"></i>
+      <h1 class="text-[20px] sm:text-[24px] md:text-[28px] font-semibold tracking-tight bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent text-center">
+        Disrupt the Block
+      </h1>
+      <p class="text-[10px] sm:text-xs text-neutral-300 text-center">Tech consultation platform launching soon</p>
+    </div>
+
+    <!-- Interactive Coming Soon -->
+    <div class="w-full flex flex-col gap-3 sm:gap-4">
+      <!-- Main Status Display -->
+      <div class="text-center">
+        <div class="text-[24px] sm:text-[32px] md:text-[36px] font-bold bg-gradient-to-r from-blue-300 to-indigo-400 bg-clip-text text-transparent mb-1 sm:mb-2" id="status-text">
+          COMING SOON
+        </div>
+        <p class="text-neutral-300 text-[10px] sm:text-xs mb-3 sm:mb-4 px-2" id="status-subtitle">Building the future of tech consultation</p>
+
+        <!-- Interactive Status Indicators -->
+        <div class="flex justify-center gap-2 sm:gap-3 mb-4">
+          <a href="ai-automation.html" class="flex flex-col items-center gap-1 cursor-pointer group">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-blue-500/20 border border-blue-500/40 flex items-center justify-center group-hover:bg-blue-500/30 transition-all">
+              <i data-lucide="brain" class="h-3 w-3 sm:h-4 sm:w-4 stroke-[1.5] text-blue-400"></i>
+            </div>
+            <span class="text-[9px] sm:text-[10px] text-neutral-400 group-hover:text-blue-300 transition-colors">AI</span>
+          </a>
+
+          <a href="blockchain-solutions.html" class="flex flex-col items-center gap-1 cursor-pointer group">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-indigo-500/20 border border-indigo-500/40 flex items-center justify-center group-hover:bg-indigo-500/30 transition-all">
+              <i data-lucide="link" class="h-3 w-3 sm:h-4 sm:w-4 stroke-[1.5] text-indigo-400"></i>
+            </div>
+            <span class="text-[9px] sm:text-[10px] text-neutral-400 group-hover:text-indigo-300 transition-colors">Blockchain</span>
+          </a>
+
+          <a href="custom-software-development.html" class="flex flex-col items-center gap-1 cursor-pointer group">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-purple-500/20 border border-purple-500/40 flex items-center justify-center group-hover:bg-purple-500/30 transition-all">
+              <i data-lucide="code" class="h-3 w-3 sm:h-4 sm:w-4 stroke-[1.5] text-purple-400"></i>
+            </div>
+            <span class="text-[9px] sm:text-[10px] text-neutral-400 group-hover:text-purple-300 transition-colors">Dev</span>
+          </a>
+
+          <a href="project-management.html" class="flex flex-col items-center gap-1 cursor-pointer group">
+            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center group-hover:bg-emerald-500/30 transition-all">
+              <i data-lucide="users" class="h-3 w-3 sm:h-4 sm:w-4 stroke-[1.5] text-emerald-400"></i>
+            </div>
+            <span class="text-[9px] sm:text-[10px] text-neutral-400 group-hover:text-emerald-300 transition-colors">Mgmt</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Service Preview -->
+      <div class="bg-white/5 rounded-lg p-3 border border-white/10 min-h-[50px] sm:min-h-[60px] transition-all duration-300">
+        <div class="text-center text-neutral-400">
+          <i data-lucide="sparkles" class="h-4 w-4 sm:h-5 sm:w-5 stroke-[1.5] mx-auto mb-1 text-blue-400"></i>
+          <p class="text-[10px] sm:text-xs">Click any service above to visit that page</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Email Notify -->
+    <form id="notify-form" action="https://formspree.io/f/movldvzd" method="POST" class="w-full flex flex-col gap-2">
+      <div class="relative">
+        <input required type="email" name="email" placeholder="you@company.com"
+          class="w-full h-8 sm:h-9 rounded-md bg-white/10 placeholder-neutral-400 text-xs sm:text-sm px-3 pr-8 focus:outline-none focus:ring-2 focus:ring-blue-400/50" />
+        <i data-lucide="mail" class="absolute right-2 top-1/2 -translate-y-1/2 h-3 w-3 stroke-[1.5] text-neutral-400 pointer-events-none"></i>
+      </div>
+      <button type="submit"
+        class="group h-8 sm:h-9 px-3 sm:px-4 rounded-md bg-gradient-to-r from-blue-400 to-indigo-400 text-black font-medium text-xs sm:text-sm flex items-center justify-center gap-1 sm:gap-2 hover:scale-[1.02] active:scale-100 transition-transform">
+        Notify Me
+        <i data-lucide="chevron-right" class="h-3 w-3 stroke-[1.5] transition-transform group-hover:translate-x-0.5"></i>
+      </button>
+    </form>
+
+    <!-- Footer -->
+    <div class="w-full flex justify-between items-center text-[10px] text-neutral-400 pt-2 border-t border-white/10">
+      <div class="flex items-center gap-1">
+        <i data-lucide="shield" class="h-2 w-2 stroke-[1.5]"></i>
+        <span>Secure</span>
+      </div>
+      <div class="flex items-center gap-1">
+        <i data-lucide="zap" class="h-2 w-2 stroke-[1.5]"></i>
+        <span>DTB</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script>
+    // Create Lucide icons
+    lucide.createIcons({ strokeWidth: 1.5 });
+
+    /* ================= Matrix Background ================= */
+    const canvas = document.getElementById('matrix-canvas');
+    const ctx     = canvas.getContext('2d');
+    let columns, drops;
+
+    const resize = () => {
+      canvas.width  = innerWidth;
+      canvas.height = innerHeight;
+      columns = Math.floor(canvas.width / 14);
+      drops   = Array(columns).fill(1);
+    };
+    resize(); addEventListener('resize', resize);
+
+    const matrixChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789☰☱☲☳☴☵☶☷';
+    const drawMatrix  = () => {
+      ctx.fillStyle = 'rgba(0,0,0,0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#3b82f6';
+      ctx.font = '14px monospace';
+
+      drops.forEach((y, i) => {
+        const text = matrixChars[Math.floor(Math.random() * matrixChars.length)];
+        const x = i * 14;
+        ctx.fillText(text, x, y * 14);
+        if (y * 14 > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
+      });
+    };
+    setInterval(drawMatrix, 42);
+
+
+
+    /* ================= Notify Form ================= */
+    document.getElementById('notify-form').addEventListener('submit', e => {
+      const btn = e.target.querySelector('button');
+      const icon = btn.querySelector('i');
+      btn.disabled = true;
+      btn.textContent = 'Submitting...';
+      btn.appendChild(icon);
+      btn.classList.remove('hover:scale-[1.02]');
+      // Form will submit to Formspree - don't prevent default
+    });
+  </script>
+</body>
+</html>
