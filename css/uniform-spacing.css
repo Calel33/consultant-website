@@ -1,0 +1,264 @@
+/* Uniform Spacing and Typography System */
+
+/* Mobile-First Responsive Typography */
+.hero-title-primary {
+  font-size: 3.75rem; /* text-6xl */
+  line-height: 0.9;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.5rem;
+  padding: 0 1rem;
+}
+
+.hero-title-secondary {
+  font-size: 3rem; /* text-5xl */
+  line-height: 0.9;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+/* Responsive breakpoints for hero titles */
+@media (min-width: 640px) {
+  .hero-title-primary {
+    font-size: 4.5rem; /* text-7xl */
+  }
+  .hero-title-secondary {
+    font-size: 3.75rem; /* text-6xl */
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-title-primary {
+    font-size: 6rem; /* text-8xl */
+  }
+  .hero-title-secondary {
+    font-size: 4.5rem; /* text-7xl */
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-title-primary {
+    font-size: 8rem; /* text-9xl */
+  }
+  .hero-title-secondary {
+    font-size: 6rem; /* text-8xl */
+  }
+}
+
+/* Hero Description Text */
+.hero-description {
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.75;
+  color: rgba(209, 213, 219, 1); /* text-gray-300 */
+  max-width: 48rem; /* max-w-3xl */
+  margin: 2rem auto 0 auto; /* mt-8 mx-auto */
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  .hero-description {
+    font-size: 1.25rem; /* text-xl */
+  }
+}
+
+/* Consistent Button Spacing */
+.hero-buttons {
+  margin-top: 2.5rem; /* mt-10 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .hero-buttons {
+    flex-direction: row;
+  }
+}
+
+/* Scroll Arrow Positioning */
+.hero-scroll-arrow {
+  margin-top: 2rem; /* mt-8 */
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  animation: bounce 1s infinite;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.hero-scroll-arrow:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.hero-scroll-arrow i {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.25rem;
+}
+
+/* Section Spacing */
+.section-spacing {
+  padding-top: 5rem; /* py-20 */
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section-spacing {
+    padding-top: 8rem; /* md:py-32 */
+    padding-bottom: 8rem;
+  }
+}
+
+/* Section Headers */
+.section-header {
+  text-align: center;
+  max-width: 64rem; /* max-w-4xl */
+  margin: 0 auto 5rem auto; /* mb-20 */
+}
+
+.section-title {
+  font-size: 2.25rem; /* text-4xl */
+  line-height: 1.1;
+  font-weight: 600;
+  margin-bottom: 2rem; /* mb-8 */
+}
+
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 3.75rem; /* md:text-6xl */
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-title {
+    font-size: 4.5rem; /* lg:text-7xl */
+  }
+}
+
+.section-description {
+  font-size: 1.125rem; /* text-lg */
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+@media (min-width: 768px) {
+  .section-description {
+    font-size: 1.25rem; /* md:text-xl */
+  }
+}
+
+/* Card Grid Spacing */
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem; /* gap-8 */
+  margin-bottom: 4rem; /* mb-16 */
+}
+
+@media (min-width: 1024px) {
+  .card-grid {
+    grid-template-columns: repeat(2, 1fr); /* lg:grid-cols-2 */
+  }
+}
+
+.card-grid-three {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem; /* gap-6 */
+  margin-bottom: 4rem; /* mb-16 */
+}
+
+@media (min-width: 768px) {
+  .card-grid-three {
+    grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+  }
+}
+
+@media (min-width: 1024px) {
+  .card-grid-three {
+    grid-template-columns: repeat(3, 1fr); /* lg:grid-cols-3 */
+  }
+}
+
+/* Badge Spacing */
+.section-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem; /* px-4 py-2 */
+  border-radius: 9999px; /* rounded-full */
+  margin-bottom: 2rem; /* mb-8 */
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500;
+}
+
+/* Container Spacing */
+.container-spacing {
+  max-width: 80rem; /* max-w-7xl */
+  margin: 0 auto;
+  padding-left: 1rem; /* px-4 */
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .container-spacing {
+    padding-left: 1.5rem; /* sm:px-6 */
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-spacing {
+    padding-left: 2rem; /* lg:px-8 */
+    padding-right: 2rem;
+  }
+}
+
+/* Divider Spacing */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(107, 114, 128, 1), transparent);
+  margin: 4rem 0; /* my-16 */
+}
+
+@media (min-width: 768px) {
+  .section-divider {
+    margin: 5rem 0; /* my-20 */
+  }
+}
+
+/* Feature Icon Consistent Sizing */
+.feature-icon {
+  width: 3rem; /* w-12 */
+  height: 3rem; /* h-12 */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Consistent Card Padding */
+.card-padding {
+  padding: 2rem; /* p-8 */
+}
+
+@media (min-width: 1024px) {
+  .card-padding {
+    padding: 2rem; /* lg:p-8 */
+  }
+}
+
+/* Text Spacing */
+.text-spacing-sm {
+  margin-bottom: 0.75rem; /* mb-3 */
+}
+
+.text-spacing-md {
+  margin-bottom: 1.5rem; /* mb-6 */
+}
+
+.text-spacing-lg {
+  margin-bottom: 2rem; /* mb-8 */
+}
